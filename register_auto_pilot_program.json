@@ -6,64 +6,15 @@
 				"questions": [
 					{
 						"question": {
-							"say": "Sure, I can help you to get an appointment shortly. Can I please know your firstname?"
+							"say": "Sure, I can help you to get an appointment shortly. Can I please know your phone number?"
 						},
-						"name": "first_name"
-					},
-					{
-						"question": {
-							"say": "And your lastname?"
-						},
-						"name": "last_name"
-					},
-					{
-						"question": {
-							"say": "When day would you like to book the appointment for"
-						},
-						"name": "date",
-						"type": "Twilio.DATE"
-					},
-					{
-						"question": {
-							"say": "what would be the best number to reach you?"
-						},
-						"name": "phone",
-						"type": "Twilio.NUMBER"
-					},
-					{
-						"question": {
-							"say": "What kind of appointment are you looking for?"
-						},
-						"name": "appointment_type",
-						"validate": {
-							"allowed_values": {
-								"list": [
-									"General Physician",
-									"Dentist",
-									"Eye test"
-								]
-							},
-							"on_failure": {
-								"messages": [
-									{
-										"say": "Sorry, I didn't understand :(  Can you please try once again?"
-									},
-									{
-										"say": "Hmm, I'm not understanding. Here are the options you have: General Physician, Dentist and Eye test"
-									}
-								]
-							},
-							"max_attempts": {
-								"redirect": "task://having-trouble",
-								"num_attempts": 3
-							}
-						}
+						"name": "phone_number"
 					}
 				],
 				"on_complete": {
 					"redirect": {
 						"method": "POST",
-						"uri": "https://telehealth-6174.twil.io/book_appointment"
+						"uri": "https://telehealth-6174.twil.io/check_phone_for_kisok_registration"
 					}
 				}
 			}
